@@ -37,7 +37,7 @@ var get_repos = function(user) {
             var repo = this.name;
             $('tbody').append(Mustache.render(
                 $('#repo-row').html(),
-                {'user': user, 'repo': repo}
+                {'user': user, 'repo': repo, fork: this.fork}
             ));
             var $row = $('tbody tr:last-child');
             get_repo_status(user, repo, $row);

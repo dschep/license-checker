@@ -9,6 +9,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet"></link>
     <link href="css/license-checker.css" rel="stylesheet"></link>
+    <link href="css/elusive-webfont.css" rel="stylesheet"></link>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -71,6 +72,7 @@
           <p class="muted credit">
           Built by <a href=http://github.com/dschep/>Daniel Schep</a>.
           Inspired by <a href="http://aniggler.tumblr.com/post/48445125606/finding-unlicensed-repos-on-github">Niggler</a>.
+          Source on <a href="https://github.com/dschep/license-checker"><i class="icon-github"></i> GitHub</a>
           </p>
       </div>
     </footer>
@@ -80,6 +82,7 @@
     <script id="repo-row" type="text/html">
         <tr>
             <td class="repo-name">
+                {{#fork}}<i title="Fork" class="icon-fork"></i>{{/fork}}
                 <a href="https://github.com/{{user}}/{{repo}}">{{repo}}</a>
             </td>
             <td class="repo-status">
