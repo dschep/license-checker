@@ -32,3 +32,8 @@ body {
 #messages {
     padding-top: 60px;
 }
+
+#landing {
+    text-align: center;
+    margin-top: 120px;
+}
