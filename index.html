@@ -33,35 +33,37 @@
               </div>
           </div><!-- /nav -->
 
-          <div id="messages" class="container" >
+          <div class="container">
               <div class="alert">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
                   This uses unauthenticated GitHub API requests and can easily
-                  burn though your 60 requests/hr
+                  burn through your 60 requests/hr
               </div>
-          </div><!-- /messages -->
 
-          <div id="landing" class="container" style="display:none">
-              <h1>Check your GitHub repos for license files!</h1>
+              <div id="landing" style="display:none">
+                  <h1>Check that you've added licenses to all your
+                      repos!</h1>
 
-              <p>
-                  Enter your GitHub user name to check your repos for license files
+                  <p class="muted">
+                      Enter your GitHub user name to check your repos for files
+                      with names like <code>LICENSE</code> or
+                      <code>license.md</code> or <code>copying</code>
+                  </p>
                   <form class="form-inline">
                       <input type="text" class="span2" placeholder="Username">
                       <button type="submit" class="btn btn-primary">Check Repos!</button>
                   </form>
-              </p>
-          </div> <!-- /landing -->
+              </div> <!-- /landing -->
 
-          <div id="repos" class="container" style="display:none">
-              <table class="table table-striped table-bordered">
-                  <thead>
-                      <tr><th>Repository</th><th>License?</th></tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-              </table>
-          </div> <!-- /repos -->
+              <div id="repos" style="display:none">
+                  <table class="table table-striped table-bordered">
+                      <thead>
+                          <tr><th>Repository</th><th>License?</th></tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              </div> <!-- /repos -->
+          </div>
 
           <div id="push"></div> <!-- for sticky footer -->
     </div>
