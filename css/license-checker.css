@@ -28,3 +28,7 @@ body {
 .container .credit {
     margin: 20px 0;
 }
+
+#messages {
+    padding-top: 60px;
+}
