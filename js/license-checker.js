@@ -20,18 +20,14 @@ $(document).ready(function() {
     })
 });
 
-var check_ratelimit = function(data) {
-    if (data.meta["X-RateLimit-Remaining"] == "0") {
-        $('<div class="alert alert-error">' + 
-          '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-          'API rate limit reached</div>').appendTo('#messages');
-        return true;
-    }
-};
-
 var get_repos = function(user) {
     $.getJSON('https://api.github.com/users/'+user+'/repos?callback=?', function(data) {
-        if (check_ratelimit(data)) return;
+        if (data.meta["X-RateLimit-Remaining"] == "0") {
+            $('<tr class="warning"><td colspan="2">' +
+                '<i class="icon-exclamation-sign"></i> ' +
+                'API rate limit exceeded</td></tr>').appendTo('tbody');
+            return;
+        }
 
         $.each(data.data, function() {
             var repo = this.name;
@@ -47,7 +43,13 @@ var get_repos = function(user) {
 
 var get_repo_status = function(user, repo, $row) {
     $.getJSON('https://api.github.com/repos/'+user+'/'+ repo+'/contents?callback=?', function(data) {
-        if (check_ratelimit(data)) return;
+        if (data.meta["X-RateLimit-Remaining"] == "0") {
+            $row.addClass('warning')
+            $row.find('.repo-status').html(
+                '<i class="icon-exclamation-sign"></i>' +
+                'API rate limit reached')
+            return;
+        }
 
         var files = $.grep(data.data, function(e, i) {
             return e.path.match(/.*(license|copying).*/i)
